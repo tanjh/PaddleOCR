@@ -205,8 +205,8 @@ Architecture:
     name: LayoutXLMForSer
     pretrained: True
     mode: vi
-    # 假设字典中包含n个字段（包含other），由于采用BIO标注，则类别数为2n-1
-    num_classes: &num_classes 7
+    # 假设字典中包含n个字段（包含other），由于采用BIO标注，则类别数为2n+1，否则会在训练阶段报IndexError: (OutOfRange) label value should less than the shape of axis dimension
+    num_classes: &num_classes 9
 
 PostProcess:
   name: kieSerTokenLayoutLMPostProcess
